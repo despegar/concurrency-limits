@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.netflix</groupId>
+    <artifactId>concurrency-limits</artifactId>
+    <version>0.4.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>concurrency-limits-spectator</artifactId>
+  <dependencies>
+     <dependency>
+      <groupId>com.netflix</groupId>
+      <artifactId>concurrency-limits-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.spectator</groupId>
+      <artifactId>spectator-api</artifactId>
+      <version>0.99.1</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit-dep</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

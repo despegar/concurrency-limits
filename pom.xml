@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+
+	<parent>
+		<groupId>com.despegar.scm</groupId>
+		<artifactId>scm-master-pom</artifactId>
+		<version>2.1.1</version>
+	</parent>
+
+	<groupId>com.netflix</groupId>
+	<artifactId>concurrency-limits</artifactId>
+	<version>0.4.0</version>
+	<packaging>pom</packaging>
+	<name>concurrency-limits</name>
+
+
+
+	<url>https://github.com/despegar/concurrency-limits</url>
+	<description>Forked project from netflix concurrency limits</description>
+	<organization>
+		<name>Despegar</name>
+		<url>http://www.despegar.com</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Martin Locurcio</name>
+			<email>martin.locurcio@despegar.com</email>
+		</developer>
+	</developers>
+
+
+	<scm>
+		<connection>scm:git:git@github.com:despegar/concurrency-limits.git</connection>
+		<developerConnection>scm:git:git@github.com:despegar/concurrency-limits.git</developerConnection>
+		<url>https://github.com/despegar/concurrency-limits</url>
+		<tag>0.3.0</tag>
+	</scm>
+
+	<modules>
+		<module>concurrency-limits-core</module>
+		<module>concurrency-limits-spectator</module>
+		<module>concurrency-limits-grpc</module>
+		<module>concurrency-limits-servlet</module>
+	</modules>
+
+	<properties>
+		
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>jitpack</id>
+			<url>https://jitpack.io</url>
+		</repository>
+		<repository>
+			<id>jcenter</id>
+			<url>https://jcenter.bintray.com/</url>
+		</repository>
+	</repositories>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<tagBase>${releaseTagBase}</tagBase>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+						<preparationGoals>clean install</preparationGoals>
+						<goals>clean deploy</goals>
+						<updateBranchVersions>false</updateBranchVersions>
+						<updateWorkingCopyVersions>true</updateWorkingCopyVersions>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<checkModificationExcludes>
+							<checkModificationExclude>environment.properties</checkModificationExclude>
+						</checkModificationExcludes>
+						<releaseProfiles>RELEASE</releaseProfiles>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+					<configuration>
+						<additionalparam>-Xdoclint:none</additionalparam>
+						<failOnError>false</failOnError>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco.version}</version>
+					<configuration>
+						<append>true</append>
+						<output>file</output>
+					</configuration>
+					<executions>
+						<execution>
+							<id>Prepare-Jacoco</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>default-report</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.12.4</version>
+					<configuration>
+						<argLine>${argLine}</argLine>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.surefire</groupId>
+							<artifactId>surefire-junit47</artifactId>
+							<version>2.12.4</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

@@ -47,4 +47,5 @@ atlassian-ide-plugin.xml
 .project
 .settings
 .metadata
+*.versionsBackup
 
