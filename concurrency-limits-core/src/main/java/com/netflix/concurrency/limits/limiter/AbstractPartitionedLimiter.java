@@ -111,6 +111,7 @@ public abstract class AbstractPartitionedLimiter<ContextT> extends AbstractLimit
         private int busy = 0;
         private long backoffMillis = 0;
         private MetricRegistry.SampleListener inflightDistribution;
+        private MetricRegistry.Counter limitExceedByPartition;
 
         Partition(String name) {
             this.name = name;
@@ -134,7 +135,11 @@ public abstract class AbstractPartitionedLimiter<ContextT> extends AbstractLimit
         }
 
         boolean isLimitExceeded() {
-            return busy >= limit;
+            if(busy >= limit) {
+            	limitExceedByPartition.increment();
+            	return true;
+            }
+            return false;
         }
 
         void acquire() {
@@ -161,6 +166,7 @@ public abstract class AbstractPartitionedLimiter<ContextT> extends AbstractLimit
 
         void createMetrics(MetricRegistry registry) {
             this.inflightDistribution = registry.distribution(MetricIds.INFLIGHT_NAME, PARTITION_TAG_NAME, name);
+            this.limitExceedByPartition = registry.counter(MetricIds.PARTITION_NAME, PARTITION_TAG_NAME, name);
             registry.gauge(MetricIds.PARTITION_LIMIT_NAME, this::getLimit, PARTITION_TAG_NAME, name);
         }
 
