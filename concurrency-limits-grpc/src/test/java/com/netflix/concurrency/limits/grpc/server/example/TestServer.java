@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 
 import org.apache.commons.math3.distribution.ExponentialDistribution;
 import org.apache.commons.math3.distribution.LogNormalDistribution;
+import org.junit.Ignore;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.netflix.concurrency.limits.Limiter;
@@ -31,6 +32,7 @@ import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Ignore
 public class TestServer {
     private static final Logger LOG = LoggerFactory.getLogger(TestServer.class);
 

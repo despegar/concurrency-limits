@@ -5,6 +5,7 @@ import com.kevinmost.junit_retry_rule.RetryRule;
 import com.netflix.concurrency.limits.Limiter;
 import com.netflix.concurrency.limits.limit.SettableLimit;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Ignore
 public class LifoBlockingLimiterTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(LifoBlockingLimiterTest.class);
 
