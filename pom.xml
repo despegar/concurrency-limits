@@ -48,7 +48,8 @@
 	</modules>
 
 	<properties>
-		
+	<maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>	
+	<jacoco.version>0.7.9</jacoco.version>
 	</properties>
 
 	<dependencyManagement>
