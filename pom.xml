@@ -12,7 +12,7 @@
 
 	<groupId>com.netflix</groupId>
 	<artifactId>concurrency-limits</artifactId>
-	<version>0.5.3-SNAPSHOT</version>
+	<version>0.5.3</version>
 	<packaging>pom</packaging>
 	<name>concurrency-limits</name>
 
@@ -37,7 +37,7 @@
 		<connection>scm:git:git@github.com:despegar/concurrency-limits.git</connection>
 		<developerConnection>scm:git:git@github.com:despegar/concurrency-limits.git</developerConnection>
 		<url>https://github.com/despegar/concurrency-limits</url>
-		<tag>0.5.2</tag>
+		<tag>0.5.3</tag>
 	</scm>
 
 	<modules>
