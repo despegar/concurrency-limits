@@ -12,7 +12,7 @@
 
 	<groupId>com.netflix</groupId>
 	<artifactId>concurrency-limits</artifactId>
-	<version>0.5.3-SNAPSHOT</version>
+	<version>0.5.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>concurrency-limits</name>
 
